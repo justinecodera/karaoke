@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		body {
+			background-image: url(video/space.jpg);
+			background-repeat: no-repeat;
+			background-size:  cover;
+		}
+		.video_cont {
+			height: 30em;
+			width: 50em;
+			position: relative;
+			margin: 0 auto;
+			/*background: blue;*/
+		}
+		div .play {
+			height: 100%;
+			width: 100%;
+			margin: 0;
+			position: absolute;
+			
+		 	font-size: 10rem;
+		 	z-index: 2;
+		 	opacity: 0;
+		 	transition: .4s;
+		 	color: white;
+		}
+		div .play img {
+			height: 1em;
+			width: 1em;
+			top: 50%;
+		  left: 50%;
+		 	transform: translate(-50%, -50%);
+			margin: auto;
+			position: absolute;
+			filter: invert(100%);
+		}
+		div .play:hover {
+			opacity: 100%;
+			transition: .4s;
+		}
+		
+		video {
+			height: 100%;
+			width: 100%;
+		}
+		.lyrics {
+			width: 100%;
+			height: 15em;
+			/*background: yellow;*/
+		}
+		marquee {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		p {
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+			font-size: 2em;
+			color: white;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="video_cont">
+		<a class="play" onclick="playPause(); marquee(); buttonChange();"><img src="video/playpause.png"></a>
+		<video id="myVideo" src="video/sanctuary.mp4">
+		</video>
+	</div>
+
+<div class="lyrics">
+	<marquee id="myMarquee" direction="up" scrollamount="1" behavi>
+	<p>
+		Sanctuary By: Joji<br><br><br><br><br><br><br><br><br><br>
+		Go ahead and park after dark<br>
+		Fallen star, I'm your one call away<br><br><br><br>
+		Motel halls, neon walls<br>
+		When night falls, I am your escape<br><br><br><br>
+		When you lay alone, I ache<br><br>
+		Something I wanted to feel<br><br><br>
+		If you've been waiting for fallin' in love<br>
+		Babe, you don't have to wait on me<br><br><br><br>
+		'Cause I've been aiming for heaven above<br>
+		But an angel ain't what I need<br><br><br>
+		Not anyone, you're the one<br>
+		More than fun, you're the sanctuary<br><br><br><br>
+		'Cause what you want is what I want<br>
+		Sincerity<br><br><br><br>
+		Souls that dream alone lie awake<br><br>
+		I'll give you something so real<br><br><br>
+		If you've been waiting for fallin' in love<br>
+		Babe, you don't have to wait on me<br><br><br>
+		'Cause I've been aiming for Heaven above<br>
+		But an angel ain't what I need<br><br><br>
+		Pull me oh so close<br>
+		'Cause you never know<br><br>
+		Just how long our lives will be<br><br><br>
+		If you've been waiting for fallin' in love<br>
+		Babe, you don't have to wait on me<br><br><br>
+		'Cause I've been aiming for Heaven above<br>
+		But an angel ain't what I need<br>
+	</p>
+<marquee>
+</div>
+
+
+
+</body>
+<script> 
+var myVideo = document.getElementById("myVideo"); 
+var myMarquee = document.getElementById("myMarquee");
+myMarquee.stop();
+let i = 0;
+function playPause() { 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause();
+};
+function marquee() {
+	if(i == 0){
+		myMarquee.start();
+		i++; 
+	}
+	else{
+		i = 0;
+		myMarquee.stop();
+	};
+
+myVideo.onended = function() {
+	document.location.reload(true);
+};
+	
+}
+</script>
+</html>
